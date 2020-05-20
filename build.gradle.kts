@@ -22,6 +22,9 @@ dependencies {
 
     implementation(group = "org.springframework.boot", name = "spring-boot-starter-web")
 
+    implementation(group = "io.springfox", name = "springfox-swagger-ui", version = "2.9.2")
+    implementation(group = "io.springfox", name = "springfox-swagger2", version = "2.9.2")
+
     testImplementation(group = "org.springframework.boot", name = "spring-boot-starter-test")
 
     testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.6.2")

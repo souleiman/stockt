@@ -1,0 +1,17 @@
+application:
+  name: stockt
+  version: 1.0.0
+  title: "Stockt"
+  description: "Paper trading Rest API with actual Stock and Crypto Market values powered by Kotlin"
+  basePackage: com.hxdcml.stockt
+  contact:
+    name: Soul Ayoub
+    url: https://github.com/souleiman/stockt
+    email: souleiman@hxdcml.com
+
+
+logging:
+  pattern:
+    level: "[${application.name} v${application.version}] [${application.environment}] [%X{TRACER}] - %5p"
+  file:
+    name: /var/log/spring.log
