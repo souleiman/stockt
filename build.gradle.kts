@@ -3,11 +3,13 @@ plugins {
     kotlin("kapt") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
 
+    jacoco
     id("org.springframework.boot") version "2.3.0.RELEASE"
     id("io.spring.dependency-management") version "1.0.9.RELEASE"
 
     id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
     id("io.gitlab.arturbosch.detekt") version "1.9.1"
+    id("com.adarshr.test-logger") version "2.0.0"
 }
 
 group = "com.hxdcml.stockt"
@@ -45,6 +47,7 @@ dependencies {
 
     testImplementation(group = "org.springframework.boot", name = "spring-boot-starter-test")
 
+    testImplementation(kotlin("test-junit5"))
     testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.6.2")
     testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.6.2")
 
@@ -66,5 +69,29 @@ tasks {
 
     test {
         useJUnitPlatform()
+    }
+
+    jacoco {
+        toolVersion = "0.8.5"
+        reportsDir = file("$buildDir/reports/jacoco")
+    }
+
+    jacocoTestReport {
+        group = "reporting"
+
+        reports {
+            xml.isEnabled = true
+            html.isEnabled = true
+            csv.isEnabled = false
+
+            xml.destination = file("$buildDir/reports/jacoco.xml")
+            html.destination = file("$buildDir/reports/jacocoHtml")
+        }
+
+        val matching = sourceSets.main.get().output.asFileTree.matching {
+            exclude("**/config/**", "**/Application*.*")
+        }
+
+        classDirectories.setFrom(matching)
     }
 }
