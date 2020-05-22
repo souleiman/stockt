@@ -4,4 +4,4 @@ jdk:
   - oraclejdk11
 
 script:
-  - ./gradlew clean built test
+  - ./gradlew clean build test
