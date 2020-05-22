@@ -84,8 +84,8 @@ tasks {
             html.isEnabled = true
             csv.isEnabled = false
 
-            xml.destination = file("$buildDir/reports/jacoco.xml")
-            html.destination = file("$buildDir/reports/jacocoHtml")
+            xml.destination = file("$buildDir/reports/jacoco/report.xml")
+            html.destination = file("$buildDir/reports/jacoco/jacocoHtml")
         }
 
         val matching = sourceSets.main.get().output.asFileTree.matching {
