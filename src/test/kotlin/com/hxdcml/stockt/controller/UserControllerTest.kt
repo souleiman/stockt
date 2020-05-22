@@ -1,13 +1,13 @@
 package com.hxdcml.stockt.controller
 
 import com.hxdcml.stockt.model.request.CreateUserRequest
+import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks
 import org.mockito.junit.jupiter.MockitoExtension
-import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 
 @ExtendWith(MockitoExtension::class)
 @DisplayName("User Controller")
